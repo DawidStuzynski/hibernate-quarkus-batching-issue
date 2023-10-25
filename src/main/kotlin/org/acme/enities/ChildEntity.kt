@@ -31,6 +31,4 @@ class ChildEntity(
     override fun toString(): String {
         return "ChildEntity(field='$field', id=$id)"
     }
-
-
 }

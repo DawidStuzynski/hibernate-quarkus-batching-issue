@@ -13,7 +13,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "parent_entity")
-class ParentEntity() {
+class ParentEntity {
     @OneToMany(mappedBy = "parentEntity", cascade = [CascadeType.PERSIST], fetch = FetchType.LAZY)
     val entities: MutableSet<ChildEntity> = mutableSetOf()
 
