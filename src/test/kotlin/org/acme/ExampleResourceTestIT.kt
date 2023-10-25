@@ -15,19 +15,10 @@ class ExampleResourceTestIT {
 
     @Test
     fun `test for batching`() {
-//        val expected = String(readResource("/fixtures/Expected.json"))
-
         When {
             get("hello/api1")
         } Then {
             statusCode(200)
-        } Extract {
-            val result = body().asString()
-//            println(result)
         }
-    }
-
-    fun readResource(path: String): ByteArray {
-        return javaClass.getResourceAsStream(path)!!.readAllBytes()
     }
 }
