@@ -1,6 +1,5 @@
 package org.acme.services
 
-import io.smallrye.mutiny.Uni
 import jakarta.enterprise.context.ApplicationScoped
 import org.acme.dtos.ChildDto
 import org.acme.dtos.ParentDto
@@ -11,12 +10,11 @@ import org.acme.repositories.ExampleRepository
 @ApplicationScoped
 class ExampleService(private val repository: ExampleRepository) {
 
-    fun save(): Uni<ParentDto> {
+    fun save(): ParentDto {
         val entity = ParentEntity()
         addChildEntities(entity)
-        return repository.saveExampleEntity(entity).map {
-            toDto(it)
-        }
+        repository.saveExampleEntity(entity)
+        return toDto(entity)
     }
 
     private fun addChildEntities(entity: ParentEntity) {

@@ -19,8 +19,7 @@ internal class PostgresResource : QuarkusTestResourceLifecycleManager {
     override fun start(): MutableMap<String, String> {
         postgres.start()
         return mutableMapOf(
-//            Pair("quarkus.datasource.reactive.url", postgres.jdbcUrl.replace("jdbc:", "") + "?EncMode=disable%20reWriteBatchedInserts=true"),
-            Pair("quarkus.datasource.reactive.url", postgres.jdbcUrl.replace("jdbc:", "")),
+            Pair("quarkus.datasource.jdbc.url", postgres.jdbcUrl + "?EncMode=disable%20reWriteBatchedInserts=true"),
             Pair("quarkus.datasource.username", postgres.username),
             Pair("quarkus.datasource.password", postgres.password)
         )
