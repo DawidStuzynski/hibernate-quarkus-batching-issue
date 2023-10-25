@@ -27,7 +27,7 @@ class ChildEntity(
     @Column(name = "id")
     @SequenceGenerator(name = "child_entity_sq", sequenceName = "child_entity_sq", allocationSize = 50)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "child_entity_sq")
-    private var id: Long? = null
+    var id: Long? = null
     override fun toString(): String {
         return "ChildEntity(field='$field', id=$id)"
     }

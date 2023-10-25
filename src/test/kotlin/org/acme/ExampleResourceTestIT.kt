@@ -15,10 +15,14 @@ class ExampleResourceTestIT {
 
     @Test
     fun `test for batching`() {
+
         When {
             get("hello/api1")
         } Then {
             statusCode(200)
+        } Extract {
+            val result = body().asString()
+            println("result=$result")
         }
     }
 }

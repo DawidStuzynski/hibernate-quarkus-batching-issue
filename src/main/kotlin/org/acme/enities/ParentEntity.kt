@@ -21,5 +21,5 @@ class ParentEntity() {
     @Column(name = "id")
     @SequenceGenerator(name = "parent_entity_sq", sequenceName = "parent_entity_sq", allocationSize = 50)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "parent_entity_sq")
-    private var id: Long? = null
+    var id: Long? = null
 }
