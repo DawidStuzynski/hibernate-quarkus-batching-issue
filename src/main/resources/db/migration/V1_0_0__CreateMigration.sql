@@ -10,7 +10,7 @@ CREATE TYPE example_enum AS ENUM (
 CREATE TABLE parent_entity
 (
     id           BIGINT,
-    example_enum example_enum NOT NULL,
+    string_field varchar not null,
     PRIMARY KEY (id)
 );
 

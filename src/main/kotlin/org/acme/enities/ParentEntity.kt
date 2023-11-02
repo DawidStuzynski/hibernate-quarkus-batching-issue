@@ -1,25 +1,18 @@
 package org.acme.enities
 
-import io.hypersistence.utils.hibernate.type.basic.PostgreSQLEnumType
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Entity
-import jakarta.persistence.EnumType
-import jakarta.persistence.Enumerated
 import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.OneToMany
 import jakarta.persistence.SequenceGenerator
-import org.acme.enums.ExampleEnum
-import org.hibernate.annotations.Type
 
 @Entity
 class ParentEntity(
 
-    @Enumerated(EnumType.STRING)
-    @Type(PostgreSQLEnumType::class)
-    val exampleEnum: ExampleEnum
+    val stringField: String
 ) {
 
     @Id
@@ -39,5 +32,4 @@ class ParentEntity(
         entities.remove(entity)
         entity.parentEntity = null
     }
-
 }
