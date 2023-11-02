@@ -11,7 +11,6 @@ import jakarta.persistence.SequenceGenerator
 
 @Entity
 class ParentEntity(
-
     val stringField: String
 ) {
 
