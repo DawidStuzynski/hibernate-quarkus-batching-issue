@@ -5,13 +5,14 @@ import org.acme.dtos.ChildDto
 import org.acme.dtos.ParentDto
 import org.acme.enities.ChildEntity
 import org.acme.enities.ParentEntity
+import org.acme.enums.ExampleEnum
 import org.acme.repositories.ExampleRepository
 
 @ApplicationScoped
 class ExampleService(private val repository: ExampleRepository) {
 
     fun save(): ParentDto {
-        val entity = ParentEntity()
+        val entity = ParentEntity(ExampleEnum.TEST_VALUE)
         addChildEntities(entity)
         repository.saveExampleEntity(entity)
         return toDto(entity)
@@ -24,8 +25,9 @@ class ExampleService(private val repository: ExampleRepository) {
             ChildEntity("Field3", entity),
             ChildEntity("Field4", entity)
         )
-
-        entity.entities.addAll(childEntities)
+        childEntities.forEach {
+            entity.addEntity(it)
+        }
     }
 
     fun toDto(entity: ParentEntity): ParentDto {

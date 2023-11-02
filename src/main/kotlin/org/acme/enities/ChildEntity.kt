@@ -12,19 +12,16 @@ import jakarta.persistence.SequenceGenerator
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "child_entity")
 class ChildEntity(
 
-    @Column(name = "field")
     val field: String,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_entity_id")
-    val parentEntity: ParentEntity
+    var parentEntity: ParentEntity? = null
 ) {
 
     @Id
-    @Column(name = "id")
     @SequenceGenerator(name = "child_entity_sq", sequenceName = "child_entity_sq", allocationSize = 50)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "child_entity_sq")
     var id: Long? = null

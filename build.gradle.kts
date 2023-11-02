@@ -24,6 +24,8 @@ dependencies {
     implementation("io.quarkus:quarkus-jdbc-postgresql")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
+    implementation ("io.hypersistence:hypersistence-optimizer:2.7.1:jakarta")
+    implementation("io.hypersistence:hypersistence-utils-hibernate-62:3.6.0")
     implementation("io.quarkus:quarkus-hibernate-validator")
     testImplementation("org.assertj:assertj-core:+")
     testImplementation("io.quarkus:quarkus-junit5")

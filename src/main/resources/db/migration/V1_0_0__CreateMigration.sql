@@ -2,9 +2,15 @@ CREATE SEQUENCE public.child_entity_sq INCREMENT 50 START WITH 1 MINVALUE 1;
 CREATE SEQUENCE public.parent_entity_sq INCREMENT 50 START WITH 1 MINVALUE 1;
 
 
+CREATE TYPE example_enum AS ENUM (
+    'TEST_VALUE'
+    );
+
+
 CREATE TABLE parent_entity
 (
-    id BIGINT,
+    id           BIGINT,
+    example_enum example_enum NOT NULL,
     PRIMARY KEY (id)
 );
 

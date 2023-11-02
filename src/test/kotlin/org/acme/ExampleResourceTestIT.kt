@@ -1,10 +1,13 @@
 package org.acme
 
+import io.hypersistence.optimizer.HypersistenceOptimizer
 import io.quarkus.test.common.QuarkusTestResource
 import io.quarkus.test.junit.QuarkusTest
 import io.restassured.module.kotlin.extensions.Extract
 import io.restassured.module.kotlin.extensions.Then
 import io.restassured.module.kotlin.extensions.When
+import jakarta.inject.Inject
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.testcontainers.junit.jupiter.Testcontainers
 
@@ -12,6 +15,15 @@ import org.testcontainers.junit.jupiter.Testcontainers
 @Testcontainers
 @QuarkusTestResource(PostgresResource::class)
 class ExampleResourceTestIT {
+
+    @Inject
+    lateinit var optimizer: HypersistenceOptimizer
+
+    @Test
+    fun testNoPerformanceIssues() {
+        println(optimizer.events.size)
+        assertThat(optimizer.events.isEmpty()).isEqualTo(true)
+    }
 
     @Test
     fun `test for batching`() {
