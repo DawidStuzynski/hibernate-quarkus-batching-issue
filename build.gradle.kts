@@ -1,8 +1,8 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
-    kotlin("plugin.allopen") version "1.9.10"
+    kotlin("jvm") version "1.9.21"
+    kotlin("plugin.allopen") version "1.9.21"
     id("io.quarkus")
-    id("org.jetbrains.kotlin.plugin.noarg") version "1.9.10"
+    id("org.jetbrains.kotlin.plugin.noarg") version "1.9.21"
 }
 
 repositories {
@@ -37,8 +37,8 @@ group = "org.acme"
 version = "1.0.0-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 tasks.withType<Test> {
@@ -52,7 +52,7 @@ allOpen {
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_21.toString()
     kotlinOptions.javaParameters = true
 }
 

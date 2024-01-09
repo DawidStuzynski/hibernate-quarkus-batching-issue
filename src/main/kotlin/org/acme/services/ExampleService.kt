@@ -25,7 +25,11 @@ class ExampleService(private val repository: ExampleRepository) {
             ChildEntity("Field4", entity)
         )
 
-        entity.entities.addAll(childEntities)
+        childEntities.map {
+            entity.entities.add(it)
+            it.parentEntity = entity
+        }
+//        entity.entities.addAll(childEntities)
     }
 
     fun toDto(entity: ParentEntity): ParentDto {

@@ -20,7 +20,7 @@ class ChildEntity(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_entity_id")
-    val parentEntity: ParentEntity
+    var parentEntity: ParentEntity
 ) {
 
     @Id
