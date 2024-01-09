@@ -20,7 +20,7 @@ class ChildEntity(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_entity_id")
-    val parentEntity: ParentEntity
+    var parentEntity: ParentEntity
 ) {
 
     @Id
@@ -31,6 +31,4 @@ class ChildEntity(
     override fun toString(): String {
         return "ChildEntity(field='$field', id=$id)"
     }
-
-
 }

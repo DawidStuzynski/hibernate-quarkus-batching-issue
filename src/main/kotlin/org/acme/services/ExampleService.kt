@@ -27,6 +27,10 @@ class ExampleService(private val repository: ExampleRepository) {
             ChildEntity("Field4", entity)
         )
 
+        childEntities.map {
+            entity.entities.add(it)
+            it.parentEntity= entity
+        }
         entity.entities.addAll(childEntities)
     }
 
